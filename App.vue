@@ -1,45 +1,26 @@
 <template>
-    <view class="container">
-        <status-bar
-                background-color="blue"
-                bar-style="light-content"
-        />
-        <text class="text-color-primary">{{ myInput }}</text>
-
-        <button title="Press Me!" @press="addExclamation"></button>
-    </view>
+    <app-navigator></app-navigator>
 </template>
 
 <script>
+    import { createAppContainer, createStackNavigator } from 'vue-native-router';
+
+    import MainScreen from './Main';
+    import DetailScreen from './Details';
+
+    const StackNavigator = createStackNavigator(
+        {
+            Main: MainScreen,
+            Details: DetailScreen,
+        },
+        {
+            initialRouteName: 'Main',
+        }
+    );
+
+    const AppNavigator = createAppContainer(StackNavigator);
+
     export default {
-        data() {
-            return {
-                myInput: "",
-            };
-        },
-        methods: {
-            addExclamation: function () {
-                this.message += "!";
-            },
-        },
-    };
+        components: { AppNavigator }
+    }
 </script>
-
-<style>
-    .container {
-        background-color: white;
-        align-items: center;
-        justify-content: center;
-        flex: 1;
-    }
-
-    .text-color-primary {
-        padding: 10px;
-        font-size: 16px;
-        color: blue;
-    }
-
-    .p15 {
-        padding: 15;
-    }
-</style>
