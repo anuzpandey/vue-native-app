@@ -7,14 +7,16 @@
 
     import MainScreen from './Main';
     import DetailScreen from './Details';
+    import LoginScreen from './screens/Login';
 
     const StackNavigator = createStackNavigator(
         {
             Main: MainScreen,
             Details: DetailScreen,
+            Login: LoginScreen,
         },
         {
-            initialRouteName: 'Main',
+            initialRouteName: 'Login',
         }
     );
 

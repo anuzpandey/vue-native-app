@@ -54,7 +54,7 @@
                 this.navigation.navigate("Details");
             },
             handleListTap: function(post) {
-                console.log(post.data.title);
+                // console.log(post.data.title);
                 this.navigation.navigate("Details", {
                     imageSrc: post.data.preview.images[0].source.url,
                     title: post.data.title,
